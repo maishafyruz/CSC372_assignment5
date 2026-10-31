@@ -95,6 +95,14 @@ function ShowDetail() {
     )
   }
 
+  let networkName = 'Not available'
+
+  if (show.network) {
+    networkName = show.network.name
+  } else if (show.webChannel) {
+    networkName = show.webChannel.name
+  }
+
   return (
     <main>
       <h1>{show.name}</h1>
@@ -143,13 +151,7 @@ function ShowDetail() {
       </p>
 
       <p>
-        Network/Streaming: {
-          show.network
-            ? show.network.name
-            : show.webChannel
-              ? show.webChannel.name
-              : 'Not available'
-        }
+        Network/Streaming: {networkName}
       </p>
 
       <h2>Cast</h2>
